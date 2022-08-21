@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "25765008304",
+    "project_id": "skinapp-ddc7f",
+    "storage_bucket": "skinapp-ddc7f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:25765008304:android:3d42bfdc7085ba16c37c75",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "25765008304-jjkuf5ibvekblg6mufksotuqanrpvccn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8wKSWCRgd1m1JyQN1xkoeMPVZ8GtbXGo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "25765008304-jjkuf5ibvekblg6mufksotuqanrpvccn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
