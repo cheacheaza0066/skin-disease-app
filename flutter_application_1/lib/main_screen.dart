@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/homepage.dart';
-import 'package:flutter_application_1/mainSkin.dart';
+import 'package:flutter_application_1/screen/homepage.dart';
+import 'package:flutter_application_1/screen/SkinML.dart';
+import 'package:flutter_application_1/screen/searchPage.dart';
+import 'package:flutter_application_1/screen/testhomepage.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 class main_screen extends StatefulWidget {
@@ -12,9 +14,9 @@ class main_screen extends StatefulWidget {
 class _main_screenState extends State<main_screen> {
   int _selectedIndex = 0;
   final List<Widget> _children = <Widget>[
-    HomePage(),
+    TestHomepage(),
     MainSkin(),
-    HomePage(),
+    searchPage(),
     MainSkin(),
   ];
   @override
@@ -24,7 +26,7 @@ class _main_screenState extends State<main_screen> {
         child: _children.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: Container(
-        color: Colors.blue[400],
+        color: Colors.white,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15.0,vertical: 2),
           child: GNav(
@@ -34,13 +36,13 @@ class _main_screenState extends State<main_screen> {
               });
             },
             selectedIndex: _selectedIndex,
-            backgroundColor: Colors.blue.shade400,
+            backgroundColor: Colors.white,
             color:Colors.black,
-            tabBackgroundColor: Colors.blue.shade200,
-            activeColor: Colors.black,
+            tabBackgroundColor: Colors.blueGrey,
+            activeColor: Colors.white,
             duration: Duration(milliseconds: 400),
             gap: 8, 
-            padding: EdgeInsets.all(13),
+            padding: EdgeInsets.all(6),
             tabs: const [
             GButton(
               icon: Icons.home,

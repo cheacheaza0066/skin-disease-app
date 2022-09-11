@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/mainSkin.dart';
-import 'package:flutter_application_1/homepage.dart';
+import 'package:flutter_application_1/screen/SkinML.dart';
+import 'package:flutter_application_1/screen/homepage.dart';
 
 import 'package:flutter_application_1/intro_screen/intro_page1.dart';
 import 'package:flutter_application_1/intro_screen/intro_page2.dart';

@@ -42,8 +42,9 @@ dependencies:
   google_nav_bar: ^5.0.6
   line_icons:
   lottie: ^1.4.1
-  # firebase_core: ^1.21.0
-  # cloud_firestore: ^3.4.5
+  firebase_core: ^1.21.0
+  cloud_firestore: 
+  
 
 dev_dependencies:
   flutter_test:
