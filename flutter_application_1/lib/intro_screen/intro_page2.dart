@@ -8,10 +8,10 @@ class introPage2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 239, 80, 173), //<-- SEE HERE
+      backgroundColor: Colors.orangeAccent, //<-- SEE HERE
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(40),
+          padding: const EdgeInsets.symmetric(horizontal: 42,vertical: 56),
           child: Column(
 
             children: [
@@ -21,7 +21,7 @@ class introPage2 extends StatelessWidget {
               Container(
                     height: 250,
                     width: 250,
-                   child:Lottie.network('https://assets7.lottiefiles.com/private_files/lf30_dmituz7c.json'),
+                   child:Lottie.network('https://assets1.lottiefiles.com/packages/lf20_GxMZME.json'),
                   ),
               const SizedBox(
                 height: 40,

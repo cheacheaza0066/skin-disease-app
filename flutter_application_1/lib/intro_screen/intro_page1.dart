@@ -11,7 +11,7 @@ class introPage1 extends StatelessWidget {
       backgroundColor: Colors.greenAccent, //<-- SEE HERE
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(28),
+          padding: const EdgeInsets.symmetric(horizontal: 32,vertical: 40),
           child: Column(
 
             children: [

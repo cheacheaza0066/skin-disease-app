@@ -76,7 +76,7 @@ class _MainSkinState extends State<MainSkin> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'ML Classifier',
+          'ค้นหาโรคจากรูปภาพ',
           style: GoogleFonts.roboto(),
         ),
       ),

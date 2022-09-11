@@ -26,7 +26,7 @@ class _main_screenState extends State<main_screen> {
         child: _children.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: Container(
-        color: Colors.white,
+        color: Colors.black,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15.0,vertical: 2),
           child: GNav(
@@ -36,10 +36,10 @@ class _main_screenState extends State<main_screen> {
               });
             },
             selectedIndex: _selectedIndex,
-            backgroundColor: Colors.white,
-            color:Colors.black,
-            tabBackgroundColor: Colors.blueGrey,
-            activeColor: Colors.white,
+            backgroundColor: Colors.black,
+            color:Colors.white,
+            tabBackgroundColor: Colors.white,
+            activeColor: Colors.black,
             duration: Duration(milliseconds: 400),
             gap: 8, 
             padding: EdgeInsets.all(6),

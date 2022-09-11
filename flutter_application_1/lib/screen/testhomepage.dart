@@ -7,9 +7,7 @@ import 'package:flutter_application_1/screen/SkinML.dart';
 import 'package:flutter_application_1/screen/Skin_card_all.dart';
 import 'package:flutter_application_1/screen/searchPage.dart';
 import 'package:flutter_application_1/screen/skinAllPage.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:lottie/lottie.dart';
-import 'package:flutter_application_1/screen/Skin_card.dart';
 
 class TestHomepage extends StatefulWidget {
   TestHomepage({Key? key}) : super(key: key);
@@ -59,6 +57,7 @@ class _TestHomepageState extends State<TestHomepage> {
                 ),
               ),
             ),
+            
 
             // IgnorePointer(
             //   child: Padding(
@@ -97,7 +96,7 @@ class _TestHomepageState extends State<TestHomepage> {
               physics: ScrollPhysics(),
               children: [
                 const SizedBox(
-                  height: 120,
+                  height: 82,
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width,
@@ -195,7 +194,7 @@ class _TestHomepageState extends State<TestHomepage> {
                                       fontWeight: FontWeight.bold),
                                 ),
                                 decoration: BoxDecoration(
-                                  color: Colors.green,
+                                  color: Colors.blueAccent,
                                   borderRadius: BorderRadius.only(
                                       bottomLeft: Radius.circular(95.0),
                                       topLeft: Radius.circular(95.0),

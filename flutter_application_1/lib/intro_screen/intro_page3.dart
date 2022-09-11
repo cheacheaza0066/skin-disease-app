@@ -8,10 +8,10 @@ class introPage3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.orangeAccent, //<-- SEE HERE
+      backgroundColor: Colors.cyan, //<-- SEE HERE
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(28),
+          padding: const EdgeInsets.symmetric(horizontal: 55,vertical: 40),
           child: Column(
 
             children: [
@@ -21,14 +21,14 @@ class introPage3 extends StatelessWidget {
               Container(
                     height: 250,
                     width: 250,
-                   child:Lottie.network('https://assets7.lottiefiles.com/private_files/lf30_dmituz7c.json'),
+                   child:Lottie.network('https://assets3.lottiefiles.com/packages/lf20_tflcy8s6.json'),
                   ),
               const SizedBox(
                 height: 40,
               ),
               
               Text(
-                "รวบรวมโรคผิวหนังมากกว่า 20 โรค",
+                "รวบรวมโรคที่เกี่ยวกับผิวหนัง",
                 textAlign: TextAlign.center,
                 style: Theme.of(context)
                     .textTheme
@@ -39,7 +39,7 @@ class introPage3 extends StatelessWidget {
                 height: 16,
               ),
               const Text(
-                "เเอพพลิเคชั่น สามารถค้นหาโรคผิวหนังได้",
+                "มีโรคผิวหนังรวบรวมเอาไว้ในเเอพพลิเคชั่น",
                 textAlign: TextAlign.center,
               ),
               const Spacer(),
