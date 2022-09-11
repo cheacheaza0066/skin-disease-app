@@ -42,7 +42,7 @@ class _DetailScreenState extends State<DetailScreen> {
             fit: BoxFit.cover,
           ),
           Padding(
-            padding: EdgeInsets.all(20),
+            padding: EdgeInsets.all(21),
             child: Row(
               children: [
                 InkWell(
