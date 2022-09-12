@@ -19,7 +19,7 @@ class _SkinAllPageState extends State<SkinAllPage> {
     FirebaseFirestore firestore = FirebaseFirestore.instance;
     CollectionReference Skin = firestore.collection('Skin');
     return Scaffold(
-      backgroundColor: Color(0xFF21BFBD),
+      backgroundColor: Color.fromARGB(255, 24, 165, 163),
         appBar: AppBar(
           leading: IconButton(
             onPressed: () {

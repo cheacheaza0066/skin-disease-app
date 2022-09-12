@@ -19,18 +19,69 @@ class _searchPageState extends State<searchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+        
+
+      //   appBar: AppBar(
+      //     // The search area here
+      //     title: Container(
+      //   width: double.infinity,
+      //   height: 40,
+      //   decoration: BoxDecoration(
+      //       color: Colors.white, borderRadius: BorderRadius.circular(5)),
+      //   child: Center(
+      //     child: TextField(
+      //            onChanged: (val) {
+      //         setState(() {
+      //           name = val;
+      //         });
+      //       },
+      //       decoration: InputDecoration(
+      //           prefixIcon: const Icon(Icons.search),
+                
+      //           hintText: 'ค้นหาโรคผิวหนัง...',
+      //           border: InputBorder.none),
+      //     ),
+      //   ),
+      // )),
+
+backgroundColor: Color.fromARGB(255, 24, 165, 163),
         appBar: AppBar(
-            title: Card(
+          leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            icon: Icon(Icons.arrow_back_ios),
+            color: Colors.white,
+          ),
+          backgroundColor: Colors.transparent,
+          elevation: 0.0,
+          centerTitle: true,
+          title: Container(
+        width: double.infinity,
+        height: 40,
+        decoration: BoxDecoration(
+            color: Colors.white, borderRadius: BorderRadius.circular(5)),
+        child: Center(
           child: TextField(
-            decoration: InputDecoration(
-                prefixIcon: Icon(Icons.search), hintText: 'Search...'),
-            onChanged: (val) {
+                 onChanged: (val) {
               setState(() {
                 name = val;
               });
             },
+            decoration: InputDecoration(
+                prefixIcon: const Icon(Icons.search),
+                
+                hintText: 'ค้นหาโรคผิวหนัง...',
+                border: InputBorder.none),
           ),
-        )),
+        ),
+      )
+
+        ),
+
+
+
         body: StreamBuilder<QuerySnapshot>(
           stream: FirebaseFirestore.instance.collection('Skin').snapshots(),
           builder: (context, snapshots) {
@@ -39,7 +90,7 @@ class _searchPageState extends State<searchPage> {
                     child: CircularProgressIndicator(),
                   )
                 : Container(
-                    color: Colors.grey[200],
+                    // color: Colors.grey[200],
                     padding: EdgeInsets.all(20),
                     child: ListView.builder(
                         itemCount: snapshots.data!.docs.length,
@@ -63,12 +114,12 @@ class _searchPageState extends State<searchPage> {
                               child: Container(
                                 margin: EdgeInsets.only(bottom: 20),
                                 decoration: BoxDecoration(
-                                    color: Colors.indigo[500],
+                                    // color: Colors.indigo[500],
                                     // borderRadius: BorderRadius.circular(20)
-                                    borderRadius: BorderRadius.only(topLeft: Radius.circular(10),bottomLeft: Radius.circular(10))
-                                    ),
+                                    borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(10),
+                                        bottomLeft: Radius.circular(10))),
                                 child: ListTile(
-                                  
                                   title: Text(
                                     data['nameThai'],
                                     maxLines: 1,
@@ -86,10 +137,12 @@ class _searchPageState extends State<searchPage> {
                                         fontSize: 15,
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  trailing: Icon(Icons.arrow_forward_ios,color: Colors.white,),
+                                  trailing: Icon(
+                                    Icons.arrow_forward_ios,
+                                    color: Colors.white,
+                                  ),
                                   leading: ConstrainedBox(
                                     constraints: BoxConstraints(
-                                    
                                       minWidth: 44,
                                       minHeight: 44,
                                       maxWidth: 64,
@@ -99,7 +152,7 @@ class _searchPageState extends State<searchPage> {
                                         fit: BoxFit.cover),
                                   ),
                                   textColor: Colors.white,
-                                  tileColor: Colors.indigo,
+                                  tileColor: Colors.indigo,           
 
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(20)),
@@ -124,13 +177,14 @@ class _searchPageState extends State<searchPage> {
                                             data['nameEng'],
                                             data['detail'])));
                               },
-                               child: Container(
+                              child: Container(
                                 margin: EdgeInsets.only(bottom: 20),
                                 decoration: BoxDecoration(
-                                    color: Colors.indigo[500],
+                                    // color: Colors.indigo[500],
                                     // borderRadius: BorderRadius.circular(20)
-                                    borderRadius: BorderRadius.only(topLeft: Radius.circular(10),bottomLeft: Radius.circular(10))
-                                    ),
+                                    borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(10),
+                                        bottomLeft: Radius.circular(10))),
                                 child: ListTile(
                                   title: Text(
                                     data['nameThai'],
@@ -149,7 +203,10 @@ class _searchPageState extends State<searchPage> {
                                         fontSize: 15,
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  trailing: Icon(Icons.arrow_forward_ios,color: Colors.white,),
+                                  trailing: Icon(
+                                    Icons.arrow_forward_ios,
+                                    color: Colors.white,
+                                  ),
                                   leading: ConstrainedBox(
                                     constraints: BoxConstraints(
                                       minWidth: 44,
@@ -162,7 +219,6 @@ class _searchPageState extends State<searchPage> {
                                   ),
                                   textColor: Colors.white,
                                   tileColor: Colors.indigo,
-
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(20)),
                                 ),

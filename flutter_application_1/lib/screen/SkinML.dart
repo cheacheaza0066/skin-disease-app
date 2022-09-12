@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:tflite/tflite.dart';
+import 'package:lottie/lottie.dart';
 
 class MainSkin extends StatefulWidget {
   @override
@@ -40,7 +41,7 @@ class _MainSkinState extends State<MainSkin> {
 
   loadmodel() async {
     await Tflite.loadModel(
-        model: 'assets/ML/model_unquant.tflite', 
+        model: 'assets/ML/model_unquant.tflite',
         labels: 'assets/ML/labels.txt');
   }
 
@@ -74,30 +75,53 @@ class _MainSkinState extends State<MainSkin> {
     var h = MediaQuery.of(context).size.height;
     var w = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'ค้นหาโรคจากรูปภาพ',
-          style: GoogleFonts.roboto(),
+      backgroundColor: Color.fromARGB(255, 24, 165, 163),
+        appBar: AppBar(
+          leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            icon: Icon(Icons.arrow_back_ios),
+            color: Colors.white,
+          ),
+          backgroundColor: Colors.transparent,
+          elevation: 0.0,
+          title: Text("",
+              style: TextStyle(
+                  fontFamily: 'Montserrat',
+                  fontSize: 18.0,
+                  color: Colors.white)),
+          centerTitle: true,
+          // actions: <Widget>[
+          //   IconButton(
+          //     icon: Icon(Icons.more_horiz),
+          //     onPressed: () {},
+          //     color: Colors.white,
+          //   )
+          // ],
         ),
-      ),
+
       body: Container(
         height: h,
         width: w,
         child: Column(
           children: [
+            SizedBox(height: 20),
             Container(
-              // height: 150,
-              width: 150,
-              padding: EdgeInsets.all(10),
-              // child: Image.asset('assets/mask.png'),
-            ),
-            Container(
-                child: Text('Skin detaction',
+                child: Text('ค้นหาโรคผิวหนังจากรูปภาพ',
                     style: GoogleFonts.roboto(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ))),
-            SizedBox(height: 50),
+            Container(
+              height: 150,
+              width: 150,
+              padding: EdgeInsets.all(10),
+              // child: Image.asset('assets/mask.png'),
+              child: Lottie.network(
+                  'https://assets8.lottiefiles.com/packages/lf20_urbk83vw.json'),
+            ),
+            SizedBox(height: 20),
             Container(
               child: Column(
                 children: [
@@ -106,10 +130,10 @@ class _MainSkinState extends State<MainSkin> {
                     height: 50,
                     width: double.infinity,
                     child: RaisedButton(
-                        color: Colors.teal[800],
+                        color: Color.fromARGB(255, 90, 202, 189),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10)),
-                        child: Text('Capture',
+                        child: Text('ถ่ายรูป',
                             style: GoogleFonts.roboto(fontSize: 18)),
                         onPressed: () {
                           pickimage_camera();
@@ -121,10 +145,10 @@ class _MainSkinState extends State<MainSkin> {
                     height: 50,
                     width: double.infinity,
                     child: RaisedButton(
-                        color: Colors.teal[800],
+                        color: Color.fromARGB(255, 90, 202, 189),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10)),
-                        child: Text('Gallery',
+                        child: Text('เลือกจากคลังรูปภาพ',
                             style: GoogleFonts.roboto(fontSize: 18)),
                         onPressed: () {
                           pickimage_gallery();
@@ -143,7 +167,7 @@ class _MainSkinState extends State<MainSkin> {
                           padding: EdgeInsets.all(15),
                           child: Image.file(_image),
                         ),
-                  
+
                         // _output != null
                         //     ? Text((_output[0]['label']).toString().substring(2),
                         //         style: GoogleFonts.roboto(fontSize: 18))
@@ -156,15 +180,17 @@ class _MainSkinState extends State<MainSkin> {
                         //     : Text('')
                         _output.isEmpty
                             ? Text('รูปภาพไม่ตรงกับโรคใดๆ อัพโหลดอีกครั้ง')
-                            : Text((_output[0]['label']).toString().substring(2),
+                            : Text(
+                                (_output[0]['label']).toString().substring(2),
                                 style: GoogleFonts.roboto(fontSize: 18)),
                         _output.isEmpty
-                            ? Text(
-                                '')
+                            ? Text('')
                             : Text(
-                                'อัตตราความเเม่ยำ : ' +(_output[0]['confidence']).toStringAsFixed(1)+' / 1',
-                                style: GoogleFonts.roboto(fontSize: 18)
-                                )
+                                'อัตตราความเเม่ยำ : ' +
+                                    (_output[0]['confidence'])
+                                        .toStringAsFixed(1) +
+                                    ' / 1',
+                                style: GoogleFonts.roboto(fontSize: 18))
                       ],
                     ),
                   )

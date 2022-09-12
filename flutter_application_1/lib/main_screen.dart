@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screen/homepage.dart';
 import 'package:flutter_application_1/screen/SkinML.dart';
 import 'package:flutter_application_1/screen/searchPage.dart';
+import 'package:flutter_application_1/screen/skinAllPage.dart';
 import 'package:flutter_application_1/screen/testhomepage.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
@@ -17,7 +18,7 @@ class _main_screenState extends State<main_screen> {
     TestHomepage(),
     MainSkin(),
     searchPage(),
-    MainSkin(),
+    SkinAllPage(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -46,19 +47,19 @@ class _main_screenState extends State<main_screen> {
             tabs: const [
             GButton(
               icon: Icons.home,
-              text: 'Home',
+              text: 'หน้าเเรก',
             ),
             GButton(
-              icon: Icons.image,
-              text: 'image',
+              icon: Icons.image_search,
+              text: 'ค้นหาจากรูปภาพ',
             ),
            GButton(
               icon: Icons.search,
-              text: 'search',
+              text: 'ค้นหาโรคผิวหนัง',
             ),
             GButton(
-              icon: Icons.settings,
-              text: 'settings',
+              icon: Icons.other_houses_sharp,
+              text: 'โรคผิวหนังทั้งหมด',
             ),
           ],
           
