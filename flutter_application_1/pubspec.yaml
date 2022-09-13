@@ -36,14 +36,14 @@ dependencies:
   cupertino_icons: ^1.0.2
   smooth_page_indicator: ^1.0.0+2
   google_fonts: ^3.0.1
-  flutter_svg: any
+  flutter_svg: ^1.1.5
   image_picker: ^0.8.5+3
-  tflite:
+  tflite: ^1.1.2
   google_nav_bar: ^5.0.6
-  line_icons:
+  line_icons: ^2.0.1
   lottie: ^1.4.1
   firebase_core: ^1.21.0
-  cloud_firestore: 
+  cloud_firestore: ^3.4.7
   
 
 dev_dependencies:

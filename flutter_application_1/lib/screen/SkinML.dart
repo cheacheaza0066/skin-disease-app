@@ -76,31 +76,28 @@ class _MainSkinState extends State<MainSkin> {
     var w = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 24, 165, 163),
-        appBar: AppBar(
-          leading: IconButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            icon: Icon(Icons.arrow_back_ios),
-            color: Colors.white,
-          ),
-          backgroundColor: Colors.transparent,
-          elevation: 0.0,
-          title: Text("",
-              style: TextStyle(
-                  fontFamily: 'Montserrat',
-                  fontSize: 18.0,
-                  color: Colors.white)),
-          centerTitle: true,
-          // actions: <Widget>[
-          //   IconButton(
-          //     icon: Icon(Icons.more_horiz),
-          //     onPressed: () {},
-          //     color: Colors.white,
-          //   )
-          // ],
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          icon: Icon(Icons.arrow_back_ios),
+          color: Colors.white,
         ),
-
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+        title: Text("",
+            style: TextStyle(
+                fontFamily: 'Montserrat', fontSize: 18.0, color: Colors.white)),
+        centerTitle: true,
+        // actions: <Widget>[
+        //   IconButton(
+        //     icon: Icon(Icons.more_horiz),
+        //     onPressed: () {},
+        //     color: Colors.white,
+        //   )
+        // ],
+      ),
       body: Container(
         height: h,
         width: w,
@@ -129,30 +126,60 @@ class _MainSkinState extends State<MainSkin> {
                     padding: EdgeInsets.only(left: 10, right: 10),
                     height: 50,
                     width: double.infinity,
-                    child: RaisedButton(
-                        color: Color.fromARGB(255, 90, 202, 189),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Text('ถ่ายรูป',
-                            style: GoogleFonts.roboto(fontSize: 18)),
-                        onPressed: () {
-                          pickimage_camera();
-                        }),
+                    // child: RaisedButton(
+                    //     color: Color.fromARGB(255, 90, 202, 189),
+                    //     shape: RoundedRectangleBorder(
+                    //         borderRadius: BorderRadius.circular(10)),
+                    //     child: Text('ถ่ายรูป',
+                    //         style: GoogleFonts.roboto(fontSize: 18)),
+                    //     onPressed: () {
+                    //       pickimage_camera();
+                    //     }
+                    //     ),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary:
+                            Color.fromARGB(255, 90, 202, 189), // background
+                        onPrimary: Colors.black,
+                        textStyle: TextStyle(
+                          fontSize: 18,
+                        ),
+                      ),
+                      onPressed: () {
+                        pickimage_camera();
+                      },
+                      child: Text('ถ่ายรูป'),
+                    ),
                   ),
                   SizedBox(height: 10),
                   Container(
                     padding: EdgeInsets.only(left: 10, right: 10),
                     height: 50,
                     width: double.infinity,
-                    child: RaisedButton(
-                        color: Color.fromARGB(255, 90, 202, 189),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Text('เลือกจากคลังรูปภาพ',
-                            style: GoogleFonts.roboto(fontSize: 18)),
-                        onPressed: () {
-                          pickimage_gallery();
-                        }),
+                    // child: RaisedButton(
+                    //     color: Color.fromARGB(255, 90, 202, 189),
+                    //     shape: RoundedRectangleBorder(
+                    //         borderRadius: BorderRadius.circular(10)),
+                    //     child: Text('เลือกจากคลังรูปภาพ',
+                    //         style: GoogleFonts.roboto(fontSize: 18)),
+                    //     onPressed: () {
+                    //       pickimage_gallery();
+                    //     }
+                    //     ),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary:
+                            Color.fromARGB(255, 90, 202, 189), // background
+                        onPrimary: Colors.black,
+                        textStyle: TextStyle(
+                          fontSize: 18,
+                        ),
+                      ),
+                      onPressed: () {
+                        pickimage_gallery();
+                      },
+                      child: Text('เลือกจากคลังรูปภาพ'),
+                    ),
                   ),
                 ],
               ),

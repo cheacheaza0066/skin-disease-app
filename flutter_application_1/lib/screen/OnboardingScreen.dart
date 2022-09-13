@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screen/SkinML.dart';
-import 'package:flutter_application_1/screen/homepage.dart';
 
 import 'package:flutter_application_1/intro_screen/intro_page1.dart';
 import 'package:flutter_application_1/intro_screen/intro_page2.dart';
@@ -47,13 +46,16 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     },
                     child: Text(
                       "ย้อนกลับ",
-                      style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                      style: TextStyle(
+                        fontWeight: FontWeight.w800,
+                        fontSize: 18,
+                        color: Colors.white,
+                      ),
                     )),
                 SmoothPageIndicator(
                     controller: _controller, effect: WormEffect(), count: 3),
-                onLastPage ? 
-                GestureDetector(
+                onLastPage
+                    ? GestureDetector(
                         onTap: () {
                           Navigator.push(context,
                               MaterialPageRoute(builder: (context) {
@@ -63,7 +65,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         child: Text(
                           "เริ่มต้นใช้งาน",
                           style: TextStyle(
-                              fontWeight: FontWeight.w500, fontSize: 18),
+                              color: Colors.white,
+                              fontWeight: FontWeight.w800,
+                              fontSize: 18),
                         ))
                     : GestureDetector(
                         onTap: () {
@@ -74,11 +78,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         child: const Text(
                           "ถัดไป",
                           style: TextStyle(
-                            
-                              fontWeight: FontWeight.w500, fontSize: 18)
-                              
-                              ,
-                              
+                              color: Colors.white,
+                              fontWeight: FontWeight.w800,
+                              fontSize: 18),
                         ))
               ],
             ))

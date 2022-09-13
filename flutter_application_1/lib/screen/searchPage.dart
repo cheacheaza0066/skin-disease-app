@@ -18,6 +18,10 @@ class _searchPageState extends State<searchPage> {
 
   @override
   Widget build(BuildContext context) {
+     const color =
+        const Color(0xff137576); 
+        const color2 =
+        const Color(0xffEBD8C8); 
     return Scaffold(
 
         
@@ -152,7 +156,8 @@ backgroundColor: Color.fromARGB(255, 24, 165, 163),
                                         fit: BoxFit.cover),
                                   ),
                                   textColor: Colors.white,
-                                  tileColor: Colors.indigo,           
+
+                                  tileColor: Color.fromARGB(255, 90, 202, 189),           
 
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(20)),
@@ -217,8 +222,9 @@ backgroundColor: Color.fromARGB(255, 24, 165, 163),
                                     child: Image.asset(data['image'],
                                         fit: BoxFit.cover),
                                   ),
-                                  textColor: Colors.white,
-                                  tileColor: Colors.indigo,
+                                 textColor: Colors.white,
+
+                                  tileColor: Color.fromARGB(255, 90, 202, 189), 
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(20)),
                                 ),

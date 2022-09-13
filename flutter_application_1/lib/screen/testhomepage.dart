@@ -22,6 +22,11 @@ class _TestHomepageState extends State<TestHomepage> {
     FirebaseFirestore firestore = FirebaseFirestore.instance;
     CollectionReference Skin = firestore.collection('Skin');
 
+        const color =
+        const Color(0xff137576); 
+        const color2 =
+        const Color(0xffEBD8C8); 
+
     return Scaffold(
       body: SafeArea(
         child: Stack(
@@ -29,7 +34,7 @@ class _TestHomepageState extends State<TestHomepage> {
             Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("assets/images/blue.jpg"),
+                  image: AssetImage("assets/images/background.png"),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -59,53 +64,22 @@ class _TestHomepageState extends State<TestHomepage> {
             ),
             
 
-            // IgnorePointer(
-            //   child: Padding(
-            //     padding:
-            //         const EdgeInsets.symmetric(horizontal: 25.0, vertical: 100),
-            //     child: Flexible(
-            //       flex: 1,
-            //       child: TextField(
-            //         readOnly: true,
-            //         onTap: () {
-            //           Navigator.push(context,
-            //               MaterialPageRoute(builder: (context) => SkinAllPage()));
-            //         },
-            //         cursorColor: Colors.grey,
-            //         decoration: InputDecoration(
-            //           fillColor: Colors.white,
-            //           filled: true,
-            //           border: OutlineInputBorder(
-            //               borderRadius: BorderRadius.circular(10),
-            //               borderSide: BorderSide.none),
-            //           hintText: 'Search',
-            //           hintStyle: TextStyle(color: Colors.grey, fontSize: 18),
-            //           // prefixIcon: Container(
-            //           //   padding: EdgeInsets.all(15),
-            //           //   // child: Image.asset('assets/icons/search.png'),
-            //           //   width: 18,
-            //           // )
-            //         ),
-            //       ),
-            //     ),
-            //   ),
-            // ),
 
             ListView(
-              shrinkWrap: true,
+              shrinkWrap: false,
               physics: ScrollPhysics(),
               children: [
                 const SizedBox(
-                  height: 82,
+                  height: 110,
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width,
-                  height: 950,
+                  height: 1100,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.vertical(
                       top: Radius.circular(20),
                     ),
-                    color: Colors.grey[200],
+                    color: color2,
                   ),
                   child: Column(
                     children: [
@@ -194,7 +168,7 @@ class _TestHomepageState extends State<TestHomepage> {
                                       fontWeight: FontWeight.bold),
                                 ),
                                 decoration: BoxDecoration(
-                                  color: Colors.blueAccent,
+                                  color: color,
                                   borderRadius: BorderRadius.only(
                                       bottomLeft: Radius.circular(95.0),
                                       topLeft: Radius.circular(95.0),
@@ -239,7 +213,7 @@ class _TestHomepageState extends State<TestHomepage> {
                         child: Container(
                           padding: EdgeInsets.all(20),
                           decoration: BoxDecoration(
-                              color: Colors.blue[500],
+                              color: color,
                               borderRadius: BorderRadius.circular(15)),
                           child: Row(children: [
                             Container(
@@ -258,6 +232,7 @@ class _TestHomepageState extends State<TestHomepage> {
                                   Text(
                                     "ถ่ายรูปวิเคราะห์",
                                     style: TextStyle(
+                                      color: Colors.white,
                                         fontWeight: FontWeight.bold,
                                         fontSize: 16),
                                   ),
@@ -267,6 +242,7 @@ class _TestHomepageState extends State<TestHomepage> {
                                   Text(
                                     "คุณสามารถถ่ายรูปเพื่อหาโรคผิวหนังที่คุณเป็นได้",
                                     style: TextStyle(
+                                      color: Colors.white,
                                         fontWeight: FontWeight.normal,
                                         fontSize: 16),
                                   ),
@@ -289,7 +265,7 @@ class _TestHomepageState extends State<TestHomepage> {
                                               BorderRadius.circular(12)),
                                       child: Center(
                                           child: Text(
-                                        "Get Started",
+                                        "เริ่มถ่ายรูป",
                                         style: TextStyle(color: Colors.white),
                                       )),
                                     ),
@@ -346,7 +322,7 @@ class _TestHomepageState extends State<TestHomepage> {
                             return Container(
                               height: 220,
                               child: ListView(
-                                shrinkWrap: true,
+                                shrinkWrap: false,
                                 physics: ScrollPhysics(),
                                 scrollDirection: Axis.horizontal,
                                 children: (snapshot.data! as QuerySnapshot)
@@ -417,7 +393,7 @@ class _TestHomepageState extends State<TestHomepage> {
                             return Container(
                               height: 220,
                               child: ListView(
-                                shrinkWrap: true,
+                                shrinkWrap: false,
                                 physics: ScrollPhysics(),
                                 scrollDirection: Axis.horizontal,
                                 children: (snapshot.data! as QuerySnapshot)

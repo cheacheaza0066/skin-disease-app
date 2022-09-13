@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
@@ -7,8 +9,11 @@ class introPage1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const color =
+        const Color(0xff027368); 
     return Scaffold(
-      backgroundColor: Colors.greenAccent, //<-- SEE HERE
+      // backgroundColor: Colors.greenAccent,
+      backgroundColor: color,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 32,vertical: 40),
@@ -30,10 +35,10 @@ class introPage1 extends StatelessWidget {
               Text(
                 "ค้นหาโรคผิวหนังที่คุณอาจจะเป็น",
                 textAlign: TextAlign.center,
-                style: Theme.of(context)
-                    .textTheme
-                    .headline5!
-                    .copyWith(fontWeight: FontWeight.w500),
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold),
               ),
               const SizedBox(
                 height: 16,
@@ -41,6 +46,10 @@ class introPage1 extends StatelessWidget {
               const Text(
                 "คุณสามารถค้นหาโรคที่เกี่ยวกับผิวหนัง",
                 textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold),
               ),
               const Spacer(),
             ],

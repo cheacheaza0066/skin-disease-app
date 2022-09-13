@@ -7,8 +7,10 @@ class introPage2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const color =
+        const Color(0xff027368); 
     return Scaffold(
-      backgroundColor: Colors.orangeAccent, //<-- SEE HERE
+      backgroundColor: color, //<-- SEE HERE
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 42,vertical: 56),
@@ -31,10 +33,10 @@ class introPage2 extends StatelessWidget {
                 "วิเคราะห์โรคผิวหนังจากรูปภาพ",
                 
                 textAlign: TextAlign.center,
-                style: Theme.of(context)
-                    .textTheme
-                    .headline5!
-                    .copyWith(fontWeight: FontWeight.w500),
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold),
                     
               ),
               const SizedBox(
@@ -43,6 +45,10 @@ class introPage2 extends StatelessWidget {
               const Text(
                 "อัพโหลดรูปภาพเพื่อค้นหาโรคที่คุณอาจจะเป็นได้",
                 textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold),
               ),
               const Spacer(),
             ],
