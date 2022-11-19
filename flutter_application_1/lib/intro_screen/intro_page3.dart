@@ -36,7 +36,7 @@ class introPage3 extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     color: Colors.white,
-                    fontSize: 22,
+                    fontSize: 20,
                     fontWeight: FontWeight.bold),
               ),
               const SizedBox(
@@ -47,7 +47,7 @@ class introPage3 extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     color: Colors.white,
-                    fontSize: 14,
+                    fontSize: 15,
                     fontWeight: FontWeight.bold),
               ),
               const Spacer(),

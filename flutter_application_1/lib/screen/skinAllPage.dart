@@ -47,7 +47,7 @@ class _SkinAllPageState extends State<SkinAllPage> {
 
         
       body:  StreamBuilder<QuerySnapshot>(
-              stream: Skin.orderBy('id', descending: false).snapshots(),
+              stream: Skin.orderBy('idSkin', descending: false).snapshots(),
               builder: (_, snapshot) {
                 if (snapshot.hasData) {
                   return ListView(
@@ -55,8 +55,9 @@ class _SkinAllPageState extends State<SkinAllPage> {
                         .docs
                         .map(
                           (e) => SkinCardAll(SkinData(
-                              id: e['id'],
+                              idSkin: e['idSkin'],
                               image: e['image'],
+                              img: e['img'],
                               nameThai: e['nameThai'],
                               nameEng: e['nameEng'],
                               detail: e['detail'],

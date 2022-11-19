@@ -18,74 +18,64 @@ class _searchPageState extends State<searchPage> {
 
   @override
   Widget build(BuildContext context) {
-     const color =
-        const Color(0xff137576); 
-        const color2 =
-        const Color(0xffEBD8C8); 
+    const color = const Color(0xff137576);
+    const color2 = const Color(0xffEBD8C8);
     return Scaffold(
 
-        
+        //   appBar: AppBar(
+        //     // The search area here
+        //     title: Container(
+        //   width: double.infinity,
+        //   height: 40,
+        //   decoration: BoxDecoration(
+        //       color: Colors.white, borderRadius: BorderRadius.circular(5)),
+        //   child: Center(
+        //     child: TextField(
+        //            onChanged: (val) {
+        //         setState(() {
+        //           name = val;
+        //         });
+        //       },
+        //       decoration: InputDecoration(
+        //           prefixIcon: const Icon(Icons.search),
 
-      //   appBar: AppBar(
-      //     // The search area here
-      //     title: Container(
-      //   width: double.infinity,
-      //   height: 40,
-      //   decoration: BoxDecoration(
-      //       color: Colors.white, borderRadius: BorderRadius.circular(5)),
-      //   child: Center(
-      //     child: TextField(
-      //            onChanged: (val) {
-      //         setState(() {
-      //           name = val;
-      //         });
-      //       },
-      //       decoration: InputDecoration(
-      //           prefixIcon: const Icon(Icons.search),
-                
-      //           hintText: 'ค้นหาโรคผิวหนัง...',
-      //           border: InputBorder.none),
-      //     ),
-      //   ),
-      // )),
+        //           hintText: 'ค้นหาโรคผิวหนัง...',
+        //           border: InputBorder.none),
+        //     ),
+        //   ),
+        // )),
 
-backgroundColor: Color.fromARGB(255, 24, 165, 163),
+        backgroundColor: Color.fromARGB(255, 24, 165, 163),
         appBar: AppBar(
-          leading: IconButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            icon: Icon(Icons.arrow_back_ios),
-            color: Colors.white,
-          ),
-          backgroundColor: Colors.transparent,
-          elevation: 0.0,
-          centerTitle: true,
-          title: Container(
-        width: double.infinity,
-        height: 40,
-        decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(5)),
-        child: Center(
-          child: TextField(
-                 onChanged: (val) {
-              setState(() {
-                name = val;
-              });
-            },
-            decoration: InputDecoration(
-                prefixIcon: const Icon(Icons.search),
-                
-                hintText: 'ค้นหาโรคผิวหนัง...',
-                border: InputBorder.none),
-          ),
-        ),
-      )
-
-        ),
-
-
-
+            leading: IconButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              icon: Icon(Icons.arrow_back_ios),
+              color: Colors.white,
+            ),
+            backgroundColor: Colors.transparent,
+            elevation: 0.0,
+            centerTitle: true,
+            title: Container(
+              width: double.infinity,
+              height: 40,
+              decoration: BoxDecoration(
+                  color: Colors.white, borderRadius: BorderRadius.circular(5)),
+              child: Center(
+                child: TextField(
+                  onChanged: (val) {
+                    setState(() {
+                      name = val;
+                    });
+                  },
+                  decoration: InputDecoration(
+                      prefixIcon: const Icon(Icons.search),
+                      hintText: 'ค้นหาโรคผิวหนัง...',
+                      border: InputBorder.none),
+                ),
+              ),
+            )),
         body: StreamBuilder<QuerySnapshot>(
           stream: FirebaseFirestore.instance.collection('Skin').snapshots(),
           builder: (context, snapshots) {
@@ -111,6 +101,7 @@ backgroundColor: Color.fromARGB(255, 24, 165, 163),
                                         builder: (context) => DetailScreen(
                                             data['id'],
                                             data['image'],
+                                            data['img'],
                                             data['nameThai'],
                                             data['nameEng'],
                                             data['detail'])));
@@ -156,9 +147,7 @@ backgroundColor: Color.fromARGB(255, 24, 165, 163),
                                         fit: BoxFit.cover),
                                   ),
                                   textColor: Colors.white,
-
-                                  tileColor: Color.fromARGB(255, 90, 202, 189),           
-
+                                  tileColor: Color.fromARGB(255, 90, 202, 189),
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(20)),
                                 ),
@@ -178,6 +167,7 @@ backgroundColor: Color.fromARGB(255, 24, 165, 163),
                                         builder: (context) => DetailScreen(
                                             data['id'],
                                             data['image'],
+                                            data['img'],
                                             data['nameThai'],
                                             data['nameEng'],
                                             data['detail'])));
@@ -222,9 +212,8 @@ backgroundColor: Color.fromARGB(255, 24, 165, 163),
                                     child: Image.asset(data['image'],
                                         fit: BoxFit.cover),
                                   ),
-                                 textColor: Colors.white,
-
-                                  tileColor: Color.fromARGB(255, 90, 202, 189), 
+                                  textColor: Colors.white,
+                                  tileColor: Color.fromARGB(255, 90, 202, 189),
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(20)),
                                 ),

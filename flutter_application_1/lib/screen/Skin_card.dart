@@ -15,7 +15,7 @@ class SkinCard extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => DetailScreen(data.id, data.image,
+                builder: (context) => DetailScreen(data.idSkin, data.image,data.img,
                     data.nameThai, data.nameEng, data.detail)));
       },
       child: Padding(

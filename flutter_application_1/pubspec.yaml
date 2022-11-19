@@ -44,7 +44,8 @@ dependencies:
   lottie: ^1.4.1
   firebase_core: ^1.21.0
   cloud_firestore: ^3.4.7
-  
+  firebase_storage: 
+  firebase_auth:
 
 dev_dependencies:
   flutter_test:

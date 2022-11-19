@@ -27,11 +27,15 @@ class _MainSkinState extends State<MainSkin> {
 
   detectimage(File image) async {
     var prediction = await Tflite.runModelOnImage(
-        path: image.path,
-        numResults: 2,
-        threshold: 0.6,
-        imageMean: 127.5,
-        imageStd: 127.5);
+      path: image.path,
+      numResults: 2, //จำนวนโรคทั้งหมด
+      // threshold: 0.05,
+      threshold: 0.6,///เปอร์เซ็นความตรง เอาเรื่มตั้งเเต่กี่เปอร์เซ็นต์
+      imageMean: 127.5,
+      imageStd: 127.5,
+
+      asynch: true,
+    );
 
     setState(() {
       _output = prediction!;
@@ -41,8 +45,9 @@ class _MainSkinState extends State<MainSkin> {
 
   loadmodel() async {
     await Tflite.loadModel(
-        model: 'assets/ML/model_unquant.tflite',
-        labels: 'assets/ML/labels.txt');
+        model: 'assets/ML/model.tflite', labels: 'assets/ML/labels.txt');
+    // model: 'assets/MLTEST/model_unquant.tflite',
+    // labels: 'assets/MLTEST/labels.txt');
   }
 
   @override
@@ -74,7 +79,7 @@ class _MainSkinState extends State<MainSkin> {
   Widget build(BuildContext context) {
     var h = MediaQuery.of(context).size.height;
     var w = MediaQuery.of(context).size.width;
-    
+
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 24, 165, 163),
       appBar: AppBar(
@@ -210,15 +215,20 @@ class _MainSkinState extends State<MainSkin> {
                             ? Text('รูปภาพไม่ตรงกับโรคใดๆ อัพโหลดอีกครั้ง')
                             : Text(
                                 (_output[0]['label']).toString().substring(2),
+                                // (_output[0]['predicts']).toString().substring(2),
+
                                 style: GoogleFonts.roboto(fontSize: 18)),
                         _output.isEmpty
                             ? Text('')
                             : Text(
                                 'อัตตราความเเม่ยำ : ' +
                                     (_output[0]['confidence'])
-                                        .toStringAsFixed(1) +
+                                        .toStringAsFixed(2) +
                                     ' / 1',
                                 style: GoogleFonts.roboto(fontSize: 18))
+
+                        //  ${(output[0]['confidence'] * 100).floor()}' +
+                        //                               '%'
                       ],
                     ),
                   )

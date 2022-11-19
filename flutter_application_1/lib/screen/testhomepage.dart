@@ -22,10 +22,8 @@ class _TestHomepageState extends State<TestHomepage> {
     FirebaseFirestore firestore = FirebaseFirestore.instance;
     CollectionReference Skin = firestore.collection('Skin');
 
-        const color =
-        const Color(0xff137576); 
-        const color2 =
-        const Color(0xffEBD8C8); 
+    const color = const Color(0xff137576);
+    const color2 = const Color(0xffEBD8C8);
 
     return Scaffold(
       body: SafeArea(
@@ -39,7 +37,6 @@ class _TestHomepageState extends State<TestHomepage> {
                 ),
               ),
             ),
-
             Padding(
               padding: const EdgeInsets.all(15),
               child: const Text(
@@ -62,9 +59,6 @@ class _TestHomepageState extends State<TestHomepage> {
                 ),
               ),
             ),
-            
-
-
             ListView(
               shrinkWrap: false,
               physics: ScrollPhysics(),
@@ -163,7 +157,7 @@ class _TestHomepageState extends State<TestHomepage> {
                                 child: Text(
                                   'ค้นหาเลย',
                                   style: TextStyle(
-                                    color: Colors.white,
+                                      color: Colors.white,
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold),
                                 ),
@@ -173,8 +167,7 @@ class _TestHomepageState extends State<TestHomepage> {
                                       bottomLeft: Radius.circular(95.0),
                                       topLeft: Radius.circular(95.0),
                                       bottomRight: Radius.circular(10),
-                                      topRight: Radius.circular(10)
-                                      ),
+                                      topRight: Radius.circular(10)),
                                 ),
                               ),
                               const SizedBox(
@@ -232,7 +225,7 @@ class _TestHomepageState extends State<TestHomepage> {
                                   Text(
                                     "ถ่ายรูปวิเคราะห์",
                                     style: TextStyle(
-                                      color: Colors.white,
+                                        color: Colors.white,
                                         fontWeight: FontWeight.bold,
                                         fontSize: 16),
                                   ),
@@ -242,7 +235,7 @@ class _TestHomepageState extends State<TestHomepage> {
                                   Text(
                                     "คุณสามารถถ่ายรูปเพื่อหาโรคผิวหนังที่คุณเป็นได้",
                                     style: TextStyle(
-                                      color: Colors.white,
+                                        color: Colors.white,
                                         fontWeight: FontWeight.normal,
                                         fontSize: 16),
                                   ),
@@ -329,8 +322,9 @@ class _TestHomepageState extends State<TestHomepage> {
                                     .docs
                                     .map(
                                       (e) => SkinCardAll(SkinData(
-                                        id: e['id'],
+                                        idSkin: e['idSkin'],
                                         image: e['image'],
+                                        img: e['img'],
                                         nameThai: e['nameThai'],
                                         nameEng: e['nameEng'],
                                         detail: e['detail'],
@@ -385,7 +379,7 @@ class _TestHomepageState extends State<TestHomepage> {
                       ),
 
                       StreamBuilder<QuerySnapshot>(
-                        stream: Skin.orderBy('id', descending: false)
+                        stream: Skin.orderBy('idSkin', descending: false)
                             .limit(6)
                             .snapshots(),
                         builder: (_, snapshot) {
@@ -400,8 +394,9 @@ class _TestHomepageState extends State<TestHomepage> {
                                     .docs
                                     .map(
                                       (e) => SkinCardAll(SkinData(
-                                        id: e['id'],
+                                        idSkin: e['idSkin'],
                                         image: e['image'],
+                                        img: e['img'],
                                         nameThai: e['nameThai'],
                                         nameEng: e['nameEng'],
                                         detail: e['detail'],

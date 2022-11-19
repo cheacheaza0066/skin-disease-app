@@ -16,7 +16,7 @@ class introPage1 extends StatelessWidget {
       backgroundColor: color,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 32,vertical: 40),
+          padding: const EdgeInsets.symmetric(horizontal: 51,vertical: 40),
           child: Column(
 
             children: [
@@ -37,7 +37,7 @@ class introPage1 extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     color: Colors.white,
-                    fontSize: 22,
+                    fontSize: 20,
                     fontWeight: FontWeight.bold),
               ),
               const SizedBox(
