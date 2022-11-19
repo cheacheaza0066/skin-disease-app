@@ -74,6 +74,7 @@ class _MainSkinState extends State<MainSkin> {
   Widget build(BuildContext context) {
     var h = MediaQuery.of(context).size.height;
     var w = MediaQuery.of(context).size.width;
+    
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 24, 165, 163),
       appBar: AppBar(
