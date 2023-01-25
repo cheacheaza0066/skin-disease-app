@@ -99,12 +99,19 @@ class _searchPageState extends State<searchPage> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => DetailScreen(
-                                            data['id'],
+                                             data['idSkin'],
                                             data['image'],
                                             data['img'],
                                             data['nameThai'],
                                             data['nameEng'],
-                                            data['detail'])));
+                                            data['detail'],
+                                            data['cause'],
+                                            data['protect'],
+                                            data['symptom'],
+                                            data['therapy'],
+                                            data['medical'],
+                                            
+                                            )));
                               },
                               child: Container(
                                 margin: EdgeInsets.only(bottom: 20),
@@ -165,12 +172,20 @@ class _searchPageState extends State<searchPage> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => DetailScreen(
-                                            data['id'],
+                                            data['idSkin'],
                                             data['image'],
                                             data['img'],
                                             data['nameThai'],
                                             data['nameEng'],
-                                            data['detail'])));
+                                            data['detail'],
+                                            data['cause'],
+                                            data['protect'],
+                                            data['symptom'],
+                                            data['therapy'],
+                                            data['medical'],
+
+                                            
+                                            )));
                               },
                               child: Container(
                                 margin: EdgeInsets.only(bottom: 20),

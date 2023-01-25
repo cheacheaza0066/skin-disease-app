@@ -16,6 +16,7 @@ class _MainSkinState extends State<MainSkin> {
   late File _image;
   late List _output;
   final imagepicker = ImagePicker();
+  
 
   @override
   void initState() {
@@ -28,9 +29,11 @@ class _MainSkinState extends State<MainSkin> {
   detectimage(File image) async {
     var prediction = await Tflite.runModelOnImage(
       path: image.path,
-      numResults: 2, //จำนวนโรคทั้งหมด
+      numResults: 13, //จำนวนโรคทั้งหมด
       // threshold: 0.05,
-      threshold: 0.6,///เปอร์เซ็นความตรง เอาเรื่มตั้งเเต่กี่เปอร์เซ็นต์
+      threshold: 0.05,
+
+      ///เปอร์เซ็นความตรง เอาเรื่มตั้งเเต่กี่เปอร์เซ็นต์
       imageMean: 127.5,
       imageStd: 127.5,
 
@@ -81,161 +84,207 @@ class _MainSkinState extends State<MainSkin> {
     var w = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 24, 165, 163),
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          icon: Icon(Icons.arrow_back_ios),
-          color: Colors.white,
+        backgroundColor: Color.fromARGB(255, 24, 165, 163),
+        appBar: AppBar(
+          leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            icon: Icon(Icons.arrow_back_ios),
+            color: Colors.white,
+          ),
+          backgroundColor: Colors.transparent,
+          elevation: 0.0,
+          title: Text("",
+              style: TextStyle(
+                  fontFamily: 'Montserrat',
+                  fontSize: 18.0,
+                  color: Colors.white)),
+          centerTitle: true,
+          // actions: <Widget>[
+          //   IconButton(
+          //     icon: Icon(Icons.more_horiz),
+          //     onPressed: () {},
+          //     color: Colors.white,
+          //   )
+          // ],
         ),
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-        title: Text("",
-            style: TextStyle(
-                fontFamily: 'Montserrat', fontSize: 18.0, color: Colors.white)),
-        centerTitle: true,
-        // actions: <Widget>[
-        //   IconButton(
-        //     icon: Icon(Icons.more_horiz),
-        //     onPressed: () {},
-        //     color: Colors.white,
-        //   )
-        // ],
-      ),
-      body: Container(
-        height: h,
-        width: w,
-        child: Column(
+        body: ListView(
+          
           children: [
-            SizedBox(height: 20),
             Container(
-                child: Text('ค้นหาโรคผิวหนังจากรูปภาพ',
-                    style: GoogleFonts.roboto(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ))),
-            Container(
-              height: 150,
-              width: 150,
-              padding: EdgeInsets.all(10),
-              // child: Image.asset('assets/mask.png'),
-              child: Lottie.network(
-                  'https://assets8.lottiefiles.com/packages/lf20_urbk83vw.json'),
-            ),
-            SizedBox(height: 20),
-            Container(
+              height: 1000,
+              width: w,
               child: Column(
                 children: [
+                  SizedBox(height: 0),
                   Container(
-                    padding: EdgeInsets.only(left: 10, right: 10),
-                    height: 50,
-                    width: double.infinity,
-                    // child: RaisedButton(
-                    //     color: Color.fromARGB(255, 90, 202, 189),
-                    //     shape: RoundedRectangleBorder(
-                    //         borderRadius: BorderRadius.circular(10)),
-                    //     child: Text('ถ่ายรูป',
-                    //         style: GoogleFonts.roboto(fontSize: 18)),
-                    //     onPressed: () {
-                    //       pickimage_camera();
-                    //     }
-                    //     ),
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary:
-                            Color.fromARGB(255, 90, 202, 189), // background
-                        onPrimary: Colors.black,
-                        textStyle: TextStyle(
-                          fontSize: 18,
-                        ),
-                      ),
-                      onPressed: () {
-                        pickimage_camera();
-                      },
-                      child: Text('ถ่ายรูป'),
-                    ),
-                  ),
-                  SizedBox(height: 10),
+                      child: Text('ค้นหาโรคผิวหนังจากรูปภาพ',
+                          style: GoogleFonts.roboto(
+                            fontSize: 23,
+                            fontWeight: FontWeight.bold,
+                          )
+                          )
+                          ),
                   Container(
-                    padding: EdgeInsets.only(left: 10, right: 10),
-                    height: 50,
-                    width: double.infinity,
-                    // child: RaisedButton(
-                    //     color: Color.fromARGB(255, 90, 202, 189),
-                    //     shape: RoundedRectangleBorder(
-                    //         borderRadius: BorderRadius.circular(10)),
-                    //     child: Text('เลือกจากคลังรูปภาพ',
-                    //         style: GoogleFonts.roboto(fontSize: 18)),
-                    //     onPressed: () {
-                    //       pickimage_gallery();
-                    //     }
-                    //     ),
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary:
-                            Color.fromARGB(255, 90, 202, 189), // background
-                        onPrimary: Colors.black,
-                        textStyle: TextStyle(
-                          fontSize: 18,
-                        ),
-                      ),
-                      onPressed: () {
-                        pickimage_gallery();
-                      },
-                      child: Text('เลือกจากคลังรูปภาพ'),
-                    ),
+                    height: 150,
+                    width: 150,
+                    padding: EdgeInsets.all(10),
+                    // child: Image.asset('assets/mask.png'),
+                    child: Lottie.network(
+                        'https://assets8.lottiefiles.com/packages/lf20_urbk83vw.json'),
                   ),
-                ],
-              ),
-            ),
-            loading != true
-                ? Container(
+                  SizedBox(height: 0),
+                  Container(
                     child: Column(
                       children: [
                         Container(
-                          height: 220,
-                          // width: double.infinity,
-                          padding: EdgeInsets.all(15),
-                          child: Image.file(_image),
+                          padding: EdgeInsets.only(left: 10, right: 10),
+                          height: 50,
+                          width: double.infinity,
+                          // child: RaisedButton(
+                          //     color: Color.fromARGB(255, 90, 202, 189),
+                          //     shape: RoundedRectangleBorder(
+                          //         borderRadius: BorderRadius.circular(10)),
+                          //     child: Text('ถ่ายรูป',
+                          //         style: GoogleFonts.roboto(fontSize: 18)),
+                          //     onPressed: () {
+                          //       pickimage_camera();
+                          //     }
+                          //     ),
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              primary: Color.fromARGB(
+                                  255, 90, 202, 189), // background
+                              onPrimary: Colors.black,
+                              textStyle: TextStyle(
+                                fontSize: 18,
+                              ),
+                            ),
+                            onPressed: () {
+                              pickimage_camera();
+                            },
+                            child: Text('ถ่ายรูป'),
+                          ),
                         ),
-
-                        // _output != null
-                        //     ? Text((_output[0]['label']).toString().substring(2),
-                        //         style: GoogleFonts.roboto(fontSize: 18))
-                        //     : Text('not Match'),
-                        // _output != null
-                        //     ? Text(
-                        //         'Confidence: ' +
-                        //             (_output[0]['confidence']).toString(),
-                        //         style: GoogleFonts.roboto(fontSize: 18))
-                        //     : Text('')
-                        _output.isEmpty
-                            ? Text('รูปภาพไม่ตรงกับโรคใดๆ อัพโหลดอีกครั้ง')
-                            : Text(
-                                (_output[0]['label']).toString().substring(2),
-                                // (_output[0]['predicts']).toString().substring(2),
-
-                                style: GoogleFonts.roboto(fontSize: 18)),
-                        _output.isEmpty
-                            ? Text('')
-                            : Text(
-                                'อัตตราความเเม่ยำ : ' +
-                                    (_output[0]['confidence'])
-                                        .toStringAsFixed(2) +
-                                    ' / 1',
-                                style: GoogleFonts.roboto(fontSize: 18))
-
-                        //  ${(output[0]['confidence'] * 100).floor()}' +
-                        //                               '%'
+                        SizedBox(height: 10),
+                        Container(
+                          padding: EdgeInsets.only(left: 10, right: 10),
+                          height: 50,
+                          width: double.infinity,
+                          // child: RaisedButton(
+                          //     color: Color.fromARGB(255, 90, 202, 189),
+                          //     shape: RoundedRectangleBorder(
+                          //         borderRadius: BorderRadius.circular(10)),
+                          //     child: Text('เลือกจากคลังรูปภาพ',
+                          //         style: GoogleFonts.roboto(fontSize: 18)),
+                          //     onPressed: () {
+                          //       pickimage_gallery();
+                          //     }
+                          //     ),
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              primary: Color.fromARGB(
+                                  255, 90, 202, 189), // background
+                              onPrimary: Colors.black,
+                              textStyle: const TextStyle(
+                                fontSize: 18,
+                              ),
+                            ),
+                            onPressed: () {
+                              pickimage_gallery();
+                            },
+                            child: Text('เลือกจากคลังรูปภาพ'),
+                          ),
+                        ),
                       ],
                     ),
-                  )
-                : Container()
+                  ),
+                  loading != true
+                      ? Container(
+                          child: Column(
+                            children: [
+                              Container(
+                                height: 220,
+                                // width: double.infinity,
+                                padding: EdgeInsets.all(15),
+                                child: Image.file(_image),
+                              ),
+
+                              _output.isEmpty
+                                  ? Text(
+                                      'รูปภาพไม่ตรงกับโรคใดๆ อัพโหลดอีกครั้ง')
+                                  : Text("ผลการทำนาย - "+
+                                      (_output[0]['label'])
+                                          .toString()
+                                          .substring(0),
+                                      style: const TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 20.0,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                              // _output.isEmpty
+                              //     ? Text('')
+                              //     : Text(
+                              //         'อัตตราความเเม่ยำ : ' +
+                              //             (_output[0]['confidence'] * 100)
+                              //                 .toStringAsFixed(2) +
+                              //             ' % / 100 %',
+                              //         style: GoogleFonts.roboto(fontSize: 18)
+                              //         ),
+
+                              //  ${(output[0]['confidence'] * 100).floor()}' +
+                              //                               '%'
+                            ],
+                          ),
+                        )
+                      : Container(),
+                  const SizedBox(
+                    height: 20,
+                  ),
+
+                  loading != true ?  Text('ผลการทำนายทั้งหมด',
+                          style: GoogleFonts.roboto(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          )
+                          )
+                 : Container(), 
+
+                  const SizedBox(
+                    height: 5,
+                  ),
+                 
+                  loading != true
+                      ? SingleChildScrollView(
+                          child: Column(
+                            children: _output.isNotEmpty
+                                ? _output.map((result) {
+                                  double n = result["confidence"]*100;
+                                    return Container(
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(3.5),
+                                        child: Text(
+                                          // "${result["label"]} - ${result["confidence"].toStringAsFixed(2)}%",
+
+                                          "${result["label"]} - ${n.toStringAsFixed(0)}%",
+                                          // ignore: prefer_const_constructors
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 20.0,
+                                              fontWeight: FontWeight.normal),
+                                        ),
+                                      ),
+                                    );
+                                  }).toList()
+                                : [],
+                          ),
+                        )
+                      : Container(),
+                ],
+              ),
+            ),
           ],
-        ),
-      ),
-    );
+        ));
   }
 }

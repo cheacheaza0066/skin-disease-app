@@ -9,19 +9,25 @@ class DetailScreen extends StatefulWidget {
   late int id;
   late String image;
   late String img;
-
   late String nameThai;
   late String nameEng;
   late String detail;
+  late String cause;
+  late String protect;
+  late String symptom;
+  late String therapy;
+  late String medical;
+
+
 
   DetailScreen(
-      this.id, this.image, this.img, this.nameThai, this.nameEng, this.detail,
+      this.id, this.image, this.img, this.nameThai, this.nameEng, this.detail,this.cause,this.protect,this.symptom,this.therapy,this.medical,
       {Key? key})
       : super(key: key);
 
   @override
   State<DetailScreen> createState() =>
-      _DetailScreenState(id, image, img, nameThai, nameEng, detail);
+      _DetailScreenState(id, image, img, nameThai, nameEng, detail,cause,protect,symptom,therapy,medical);
 }
 
 class _DetailScreenState extends State<DetailScreen> {
@@ -31,8 +37,13 @@ class _DetailScreenState extends State<DetailScreen> {
   String _nameThai;
   String _nameEng;
   String _detail;
+  String _cause;
+  String _protect;
+  String _symptom;
+  String _therapy;
+  String _medical;
   _DetailScreenState(this._id, this._image, this._img, this._nameThai,
-      this._nameEng, this._detail);
+      this._nameEng, this._detail,this._cause,this._protect,this._symptom,this._therapy,this._medical,);
 
   @override
   Widget build(BuildContext context) {
@@ -40,42 +51,35 @@ class _DetailScreenState extends State<DetailScreen> {
       body: SafeArea(
           child: Stack(
         children: [
-          // Image.asset(
-          //   _image,
-          //   height: 270,
-          //   width: MediaQuery.of(context).size.width,
-          //   fit: BoxFit.cover,
-          // ),
+          
           Image.network(
             _img,
-            height: 270,
+            height: 315,
             width: MediaQuery.of(context).size.width,
             fit: BoxFit.cover,
           ),
 
-          Padding(
-            padding: EdgeInsets.all(20),
-            child: Row(
-              children: [
-                InkWell(
-                  onTap: () {
-                    Navigator.pop(context, true);
-                  },
-                  child: IconButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    icon: Icon(Icons.arrow_back_ios),
-                    color: Colors.white,
-                  ),
-                )
-              ],
-            ),
-          ),
+          //  Padding(
+          //   padding: EdgeInsets.only(left: 20,top: 20),
+          //   child: Row(
+          //     children: [
+          //       InkWell(
+          //         onTap: () {
+          //           Navigator.pop(context, true);
+          //         },
+          //         child: Image.asset('assets/images/left-arrow.png',width: 20,)
+          //       ),
+          //     ],
+          //   ),
+          // ),
+          
+          
+
           ListView(
             children: [
+             
               SizedBox(
-                height: 244,
+                height: 296,
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
@@ -109,19 +113,121 @@ class _DetailScreenState extends State<DetailScreen> {
                             fontWeight: FontWeight.bold, fontSize: 24),
                       ),
                     ),
+
+                    SizedBox(height: 20),
+
+                     Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 0, horizontal: 24),
+                      child: Text(
+                        "ความเป็นมาของโรค",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20),
+                      ),
+                    ),
+
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                          vertical: 20, horizontal: 24),
+                          vertical: 11, horizontal: 24),
                       child: Text(
                         _detail,
                         style: TextStyle(fontSize: 16),
                       ),
                     ),
+
+                     Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 0, horizontal: 24),
+                      child: Text(
+                        "สาเหตุการเกิดโรคผิวหนัง",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20),
+                      ),
+                    ),
+
+                     Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 11, horizontal: 24),
+                      child: Text(
+                        _cause,
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 0, horizontal: 24),
+                      child: Text(
+                        "การป้องกันโรคผิวหนัง",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20),
+                      ),
+                    ),
+                     Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 11, horizontal: 24),
+                      child: Text(
+                        _protect,
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ),
+                     Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 0, horizontal: 24),
+                      child: Text(
+                        "อารการของโรคผิวหนัง",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 11, horizontal: 24),
+                      child: Text(
+                        _symptom,
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 0, horizontal: 24),
+                      child: Text(
+                        "วิธีการรักษาโรคผิวหนัง",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 11, horizontal: 24),
+                      child: Text(
+                        _therapy,
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 0, horizontal: 24),
+                      child: Text(
+                        "ยาที่ใช้รักษาโรคผิวหนัง",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 11, horizontal: 24),
+                      child: Text(
+                        _medical,
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ),
+
                   ],
                 ),
               ),
             ],
-          )
+          ),
+          
         ],
       )),
     );

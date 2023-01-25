@@ -21,7 +21,7 @@ class SkinCardAll extends StatelessWidget {
             context,
             MaterialPageRoute(
                 builder: (context) => DetailScreen(data.idSkin, data.image,data.img,
-                    data.nameThai, data.nameEng, data.detail)));
+                    data.nameThai, data.nameEng, data.detail,data.cause,data.protect,data.symptom,data.therapy,data.medical)));
       },
       
       

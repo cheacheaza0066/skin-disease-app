@@ -55,12 +55,17 @@ class _SkinAllPageState extends State<SkinAllPage> {
                         .docs
                         .map(
                           (e) => SkinCardAll(SkinData(
-                              idSkin: e['idSkin'],
-                              image: e['image'],
-                              img: e['img'],
-                              nameThai: e['nameThai'],
-                              nameEng: e['nameEng'],
-                              detail: e['detail'],
+                                       idSkin: e['idSkin'],
+                                        image: e['image'],
+                                        img: e['img'],
+                                        nameThai: e['nameThai'],
+                                        nameEng: e['nameEng'],
+                                        detail: e['detail'],
+                                        cause: e['cause'],
+                                        protect: e['protect'],
+                                        symptom: e['symptom'],
+                                        therapy: e['therapy'],
+                                        medical: e['medical'],
                               )),
                         )
                         .toList(),

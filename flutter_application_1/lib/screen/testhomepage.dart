@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/model/SkinData.dart';
 import 'package:flutter_application_1/screen/SkinML.dart';
+// import 'package:flutter_application_1/screen/SkinMLTest.dart';
 import 'package:flutter_application_1/screen/Skin_card_all.dart';
 import 'package:flutter_application_1/screen/searchPage.dart';
 import 'package:flutter_application_1/screen/skinAllPage.dart';
@@ -68,7 +69,7 @@ class _TestHomepageState extends State<TestHomepage> {
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width,
-                  height: 1100,
+                  height: 850,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.vertical(
                       top: Radius.circular(20),
@@ -271,75 +272,84 @@ class _TestHomepageState extends State<TestHomepage> {
                       ),
 
                       const SizedBox(
-                        height: 25,
+                        height: 0,
                       ),
+                      
                       //โรคผิวหนังทั้งหมด
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 25),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "โรคผิวหนังที่พบบ่อย",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 20),
-                            ),
-                            // InkWell(
-                            //   onTap: () {
-                            //     Navigator.push(
-                            //         context,
-                            //         MaterialPageRoute(
-                            //             builder: (context) => SkinAllPage()));
-                            //   },
-                            //   child: Text(
-                            //     "ดูทั้งหมด",
-                            //     style: TextStyle(
-                            //         fontWeight: FontWeight.bold,
-                            //         fontSize: 16,
-                            //         color: Colors.grey[600]),
-                            //   ),
-                            // ),
-                          ],
-                        ),
-                      ),
+                      // Padding(
+                      //   padding: const EdgeInsets.symmetric(horizontal: 25),
+                      //   child: Row(
+                      //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      //     children: [
+                      //       Text(
+                      //         "โรคผิวหนังที่พบบ่อย",
+                      //         style: TextStyle(
+                      //             fontWeight: FontWeight.bold, fontSize: 20),
+                      //       ),
+                      //       // InkWell(
+                      //       //   onTap: () {
+                      //       //     Navigator.push(
+                      //       //         context,
+                      //       //         MaterialPageRoute(
+                      //       //             builder: (context) => SkinAllPage()));
+                      //       //   },
+                      //       //   child: Text(
+                      //       //     "ดูทั้งหมด",
+                      //       //     style: TextStyle(
+                      //       //         fontWeight: FontWeight.bold,
+                      //       //         fontSize: 16,
+                      //       //         color: Colors.grey[600]),
+                      //       //   ),
+                      //       // ),
+                      //     ],
+                      //   ),
+                      // ),
+
                       const SizedBox(
                         height: 20,
                       ),
 
-                      StreamBuilder<QuerySnapshot>(
-                        stream: Skin.orderBy('tag', descending: false)
-                            .limit(6)
-                            .snapshots(),
-                        builder: (_, snapshot) {
-                          if (snapshot.hasData) {
-                            return Container(
-                              height: 220,
-                              child: ListView(
-                                shrinkWrap: false,
-                                physics: ScrollPhysics(),
-                                scrollDirection: Axis.horizontal,
-                                children: (snapshot.data! as QuerySnapshot)
-                                    .docs
-                                    .map(
-                                      (e) => SkinCardAll(SkinData(
-                                        idSkin: e['idSkin'],
-                                        image: e['image'],
-                                        img: e['img'],
-                                        nameThai: e['nameThai'],
-                                        nameEng: e['nameEng'],
-                                        detail: e['detail'],
-                                      )),
-                                    )
-                                    .toList(),
-                              ),
-                            );
-                          } else {
-                            return Center(
-                              child: CircularProgressIndicator(),
-                            );
-                          }
-                        },
-                      ),
+                      // StreamBuilder<QuerySnapshot>(
+                      //   stream: Skin
+                      //   // .where('tag', isEqualTo: 1)
+                      //   .orderBy('tag', descending: false)
+                      //       .limit(6)
+                      //       .snapshots(),
+                      //   builder: (_, snapshot) {
+                      //     if (snapshot.hasData) {
+                      //       return Container(
+                      //         height: 220,
+                      //         child: ListView(
+                      //           shrinkWrap: false,
+                      //           physics: ScrollPhysics(),
+                      //           scrollDirection: Axis.horizontal,
+                      //           children: (snapshot.data! as QuerySnapshot)
+                      //               .docs
+                      //               .map(
+                      //                 (e) => SkinCardAll(SkinData(
+                      //                   idSkin: e['idSkin'],
+                      //                   image: e['image'],
+                      //                   img: e['img'],
+                      //                   nameThai: e['nameThai'],
+                      //                   nameEng: e['nameEng'],
+                      //                   detail: e['detail'],
+                      //                   cause: e['cause'],
+                      //                   protect: e['protect'],
+                      //                   symptom: e['symptom'],
+                      //                   therapy: e['therapy'],
+                      //                   medical: e['medical'],
+                      //                 )),
+                      //               )
+                      //               .toList(),
+                      //         ),
+                      //       );
+                      //     } else {
+                      //       return Center(
+                      //         child: CircularProgressIndicator(),
+                      //       );
+                      //     }
+                      //   },
+                      // ),
 
                       const SizedBox(
                         height: 25,
@@ -394,12 +404,17 @@ class _TestHomepageState extends State<TestHomepage> {
                                     .docs
                                     .map(
                                       (e) => SkinCardAll(SkinData(
-                                        idSkin: e['idSkin'],
+                                         idSkin: e['idSkin'],
                                         image: e['image'],
                                         img: e['img'],
                                         nameThai: e['nameThai'],
                                         nameEng: e['nameEng'],
                                         detail: e['detail'],
+                                        cause: e['cause'],
+                                        protect: e['protect'],
+                                        symptom: e['symptom'],
+                                        therapy: e['therapy'],
+                                        medical: e['medical'],
                                       )),
                                     )
                                     .toList(),
