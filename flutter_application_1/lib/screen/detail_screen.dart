@@ -6,8 +6,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class DetailScreen extends StatefulWidget {
-  late int id;
-  late String image;
+  // late int id;
+  // late String image;
   late String img;
   late String nameThai;
   late String nameEng;
@@ -17,22 +17,23 @@ class DetailScreen extends StatefulWidget {
   late String symptom;
   late String therapy;
   late String medical;
+  late String refskin;
 
 
 
   DetailScreen(
-      this.id, this.image, this.img, this.nameThai, this.nameEng, this.detail,this.cause,this.protect,this.symptom,this.therapy,this.medical,
+       this.img, this.nameThai, this.nameEng, this.detail,this.cause,this.protect,this.symptom,this.therapy,this.medical,this.refskin,
       {Key? key})
       : super(key: key);
 
   @override
   State<DetailScreen> createState() =>
-      _DetailScreenState(id, image, img, nameThai, nameEng, detail,cause,protect,symptom,therapy,medical);
+      _DetailScreenState( img, nameThai, nameEng, detail,cause,protect,symptom,therapy,medical,refskin);
 }
 
 class _DetailScreenState extends State<DetailScreen> {
-  int _id;
-  String _image;
+  // int _id;
+  // String _image;
   String _img;
   String _nameThai;
   String _nameEng;
@@ -42,8 +43,10 @@ class _DetailScreenState extends State<DetailScreen> {
   String _symptom;
   String _therapy;
   String _medical;
-  _DetailScreenState(this._id, this._image, this._img, this._nameThai,
-      this._nameEng, this._detail,this._cause,this._protect,this._symptom,this._therapy,this._medical,);
+  String _refskin;
+
+  _DetailScreenState( this._img, this._nameThai,
+      this._nameEng, this._detail,this._cause,this._protect,this._symptom,this._therapy,this._medical,this._refskin);
 
   @override
   Widget build(BuildContext context) {
@@ -218,6 +221,23 @@ class _DetailScreenState extends State<DetailScreen> {
                           vertical: 11, horizontal: 24),
                       child: Text(
                         _medical,
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 0, horizontal: 24),
+                      child: Text(
+                        "เเหล่งที่มา",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 11, horizontal: 24),
+                      child: Text(
+                        _refskin,
                         style: TextStyle(fontSize: 16),
                       ),
                     ),

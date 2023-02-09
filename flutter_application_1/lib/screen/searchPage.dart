@@ -99,8 +99,8 @@ class _searchPageState extends State<searchPage> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => DetailScreen(
-                                             data['idSkin'],
-                                            data['image'],
+                                            //  data['idSkin'],
+                                            // data['image'],
                                             data['img'],
                                             data['nameThai'],
                                             data['nameEng'],
@@ -110,6 +110,7 @@ class _searchPageState extends State<searchPage> {
                                             data['symptom'],
                                             data['therapy'],
                                             data['medical'],
+                                            data['refskin'],
                                             
                                             )));
                               },
@@ -150,7 +151,7 @@ class _searchPageState extends State<searchPage> {
                                       maxWidth: 64,
                                       maxHeight: 64,
                                     ),
-                                    child: Image.asset(data['image'],
+                                    child: Image.network(data['img'],
                                         fit: BoxFit.cover),
                                   ),
                                   textColor: Colors.white,
@@ -172,8 +173,8 @@ class _searchPageState extends State<searchPage> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => DetailScreen(
-                                            data['idSkin'],
-                                            data['image'],
+                                            // data['idSkin'],
+                                            // data['image'],
                                             data['img'],
                                             data['nameThai'],
                                             data['nameEng'],
@@ -183,7 +184,7 @@ class _searchPageState extends State<searchPage> {
                                             data['symptom'],
                                             data['therapy'],
                                             data['medical'],
-
+                                            data['refskin'],
                                             
                                             )));
                               },
@@ -224,9 +225,11 @@ class _searchPageState extends State<searchPage> {
                                       maxWidth: 100,
                                       maxHeight: 100,
                                     ),
-                                    child: Image.asset(data['image'],
+                                    child: Image.network(data['img'],
                                         fit: BoxFit.cover),
                                   ),
+
+                                  
                                   textColor: Colors.white,
                                   tileColor: Color.fromARGB(255, 90, 202, 189),
                                   shape: RoundedRectangleBorder(

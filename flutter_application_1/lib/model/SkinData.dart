@@ -1,6 +1,6 @@
 class SkinData {
-  late int idSkin;
-  late String image;
+  // late int idSkin;
+  // late String image;
   late String img;
   late String nameThai;
   late String nameEng;
@@ -10,11 +10,12 @@ class SkinData {
   late String symptom;
   late String therapy;
   late String medical;
+    late String refskin;
 
 
   SkinData({
-    required this.idSkin,
-    required this.image,
+    // required this.idSkin,
+    // required this.image,
     required this.img,
     required this.nameThai,
     required this.nameEng,
@@ -24,6 +25,7 @@ class SkinData {
     required this.symptom,
     required this.therapy,
     required this.medical,
+    required this.refskin,
 
     });
 }

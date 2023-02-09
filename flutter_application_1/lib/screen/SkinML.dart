@@ -245,7 +245,7 @@ class _MainSkinState extends State<MainSkin> {
 
                   loading != true ?  Text('ผลการทำนายทั้งหมด',
                           style: GoogleFonts.roboto(
-                            fontSize: 20,
+                            fontSize: 16,
                             fontWeight: FontWeight.bold,
                           )
                           )

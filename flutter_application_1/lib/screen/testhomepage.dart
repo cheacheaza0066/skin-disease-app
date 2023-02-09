@@ -389,7 +389,9 @@ class _TestHomepageState extends State<TestHomepage> {
                       ),
 
                       StreamBuilder<QuerySnapshot>(
-                        stream: Skin.orderBy('idSkin', descending: false)
+                        // stream: Skin.orderBy('idSkin', descending: false)
+                        stream: Skin.orderBy('nameThai', descending: false)
+
                             .limit(6)
                             .snapshots(),
                         builder: (_, snapshot) {
@@ -404,8 +406,8 @@ class _TestHomepageState extends State<TestHomepage> {
                                     .docs
                                     .map(
                                       (e) => SkinCardAll(SkinData(
-                                         idSkin: e['idSkin'],
-                                        image: e['image'],
+                                        //  idSkin: e['idSkin'],
+                                        // image: e['image'],
                                         img: e['img'],
                                         nameThai: e['nameThai'],
                                         nameEng: e['nameEng'],
@@ -415,6 +417,8 @@ class _TestHomepageState extends State<TestHomepage> {
                                         symptom: e['symptom'],
                                         therapy: e['therapy'],
                                         medical: e['medical'],
+                                        refskin: e['refskin'],
+
                                       )),
                                     )
                                     .toList(),
