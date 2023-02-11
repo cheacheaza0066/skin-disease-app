@@ -44,8 +44,11 @@ dependencies:
   lottie: ^1.4.1
   firebase_core: ^1.21.0
   cloud_firestore: ^3.4.7
+  intl: ^0.18.0
+  buddhist_datetime_dateformat: ^1.0.6
   firebase_storage: 
-  firebase_auth:
+  # firebase_auth:
+  
 
 dev_dependencies:
   flutter_test:

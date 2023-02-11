@@ -4,6 +4,8 @@ import 'dart:ui';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 class DetailScreen extends StatefulWidget {
   // late int id;
@@ -18,17 +20,18 @@ class DetailScreen extends StatefulWidget {
   late String therapy;
   late String medical;
   late String refskin;
+  DateTime timeStamp;
 
 
 
   DetailScreen(
-       this.img, this.nameThai, this.nameEng, this.detail,this.cause,this.protect,this.symptom,this.therapy,this.medical,this.refskin,
+       this.img, this.nameThai, this.nameEng, this.detail,this.cause,this.protect,this.symptom,this.therapy,this.medical,this.refskin,this.timeStamp,
       {Key? key})
       : super(key: key);
 
   @override
   State<DetailScreen> createState() =>
-      _DetailScreenState( img, nameThai, nameEng, detail,cause,protect,symptom,therapy,medical,refskin);
+      _DetailScreenState( img, nameThai, nameEng, detail,cause,protect,symptom,therapy,medical,refskin,timeStamp);
 }
 
 class _DetailScreenState extends State<DetailScreen> {
@@ -44,9 +47,13 @@ class _DetailScreenState extends State<DetailScreen> {
   String _therapy;
   String _medical;
   String _refskin;
+  DateTime timeStamp;
+
+  late String formattedDate = DateFormat('dd-MM-yyyy เวลา kk:mm').format(timeStamp);
+
 
   _DetailScreenState( this._img, this._nameThai,
-      this._nameEng, this._detail,this._cause,this._protect,this._symptom,this._therapy,this._medical,this._refskin);
+      this._nameEng, this._detail,this._cause,this._protect,this._symptom,this._therapy,this._medical,this._refskin,this.timeStamp);
 
   @override
   Widget build(BuildContext context) {
@@ -238,6 +245,25 @@ class _DetailScreenState extends State<DetailScreen> {
                           vertical: 11, horizontal: 24),
                       child: Text(
                         _refskin,
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ),
+
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 0, horizontal: 24),
+                      child: Text(
+                        "อัปเดตข้อมูลวันที่",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 11, horizontal: 24),
+                      child: Text(
+                        formattedDate.toString(),
+                        // timeago.format(timeStamp),
                         style: TextStyle(fontSize: 16),
                       ),
                     ),

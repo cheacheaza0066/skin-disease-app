@@ -67,6 +67,7 @@ class _SkinAllPageState extends State<SkinAllPage> {
                                         therapy: e['therapy'],
                                         medical: e['medical'],
                                         refskin: e['refskin'],
+                                        timeStamp : e['timestamp'],
                               )),
                         )
                         .toList(),

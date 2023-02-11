@@ -418,6 +418,7 @@ class _TestHomepageState extends State<TestHomepage> {
                                         therapy: e['therapy'],
                                         medical: e['medical'],
                                         refskin: e['refskin'],
+                                        timeStamp: e['timeStamp'].toDate(),
 
                                       )),
                                     )

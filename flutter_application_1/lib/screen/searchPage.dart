@@ -111,6 +111,7 @@ class _searchPageState extends State<searchPage> {
                                             data['therapy'],
                                             data['medical'],
                                             data['refskin'],
+                                            data['timeStamp'].toDate(),
                                             
                                             )));
                               },
@@ -185,7 +186,7 @@ class _searchPageState extends State<searchPage> {
                                             data['therapy'],
                                             data['medical'],
                                             data['refskin'],
-                                            
+                                            data['timeStamp'],
                                             )));
                               },
                               child: Container(

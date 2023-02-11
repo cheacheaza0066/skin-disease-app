@@ -16,7 +16,8 @@ class SkinCard extends StatelessWidget {
             context,
             MaterialPageRoute(
                 builder: (context) => DetailScreen( data.img,
-                    data.nameThai, data.nameEng, data.detail,data.cause,data.protect,data.symptom,data.therapy,data.medical,data.refskin)));
+                    data.nameThai, data.nameEng, data.detail,data.cause,data.protect,data.symptom,data.therapy,data.medical,data.refskin,
+                    data!.timeStamp)));
       },
       child: Padding(
         padding: const EdgeInsets.only(left: 25.0),

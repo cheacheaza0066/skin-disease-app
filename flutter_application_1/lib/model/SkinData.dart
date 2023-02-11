@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class SkinData {
   // late int idSkin;
   // late String image;
@@ -10,7 +12,9 @@ class SkinData {
   late String symptom;
   late String therapy;
   late String medical;
-    late String refskin;
+  late String refskin;
+  DateTime timeStamp;
+
 
 
   SkinData({
@@ -26,6 +30,7 @@ class SkinData {
     required this.therapy,
     required this.medical,
     required this.refskin,
+    required this.timeStamp,
 
     });
 }
