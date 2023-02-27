@@ -38,7 +38,7 @@ dependencies:
   google_fonts: ^3.0.1
   flutter_svg: ^1.1.5
   image_picker: ^0.8.5+3
-  tflite: ^1.1.1
+  tflite: ^1.0.5
   google_nav_bar: ^5.0.6
   line_icons: ^2.0.1
   lottie: ^1.4.1

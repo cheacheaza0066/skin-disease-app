@@ -3,8 +3,10 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:tflite/tflite.dart';
 import 'package:lottie/lottie.dart';
+import 'package:tflite/tflite.dart';
+
+
 
 class MainSkin extends StatefulWidget {
   @override
@@ -27,6 +29,7 @@ class _MainSkinState extends State<MainSkin> {
   }
 
   detectimage(File image) async {
+    
     var prediction = await Tflite.runModelOnImage(
       path: image.path,
       numResults: 13, //จำนวนโรคทั้งหมด
