@@ -87,7 +87,7 @@ class _TestHomepageState extends State<TestHomepage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "ค้นหาโรคผิวหนัง",
+                              "ค้นหาโรคผิวหนังด้วยอาการป่วย",
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 20),
                             ),
@@ -192,7 +192,7 @@ class _TestHomepageState extends State<TestHomepage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "วิเคราะห์โรคจากรูปภาพ",
+                              "วิเคราะห์โรคผิวหนังจากรูปภาพ",
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 20),
                             ),

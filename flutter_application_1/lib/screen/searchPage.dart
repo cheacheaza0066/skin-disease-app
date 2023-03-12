@@ -15,6 +15,43 @@ class searchPage extends StatefulWidget {
 
 class _searchPageState extends State<searchPage> {
   String name = "";
+  //โรคตุ่มน้ำพองใส
+  var Bullous = [
+    "ตุ่มน้ำ",
+    "ตุ่มใส",
+    "แสบ",
+    "แผลถลอก",
+    "สะเก็ด",
+    "คัน",
+    "เป็นแผล"
+  ];
+  //อาการโรคลมพิษ
+  var Urticaria = ["แน่น", "หน้าอก", "จมูก", "ปวดท้อง", "บวม", "ปาก", "ตา"];
+//โรคเริม
+  var Herpes = [
+    "ปาก",
+    "เหงือกบวม",
+    "ต่อมน้ำเหลือง",
+    "แผลภายใน",
+    "แผลเปื่อย",
+    "ตุ่มน้ำ",
+    "แสบร้อน",
+    "เหงือก"
+  ];
+  //โรคหลอดเลือดอักเสบ
+  var Vasculitis = [
+    "ผื่นนูน",
+    "ผื่นแดง",
+    "คัน",
+    "เส้นเลือด",
+    "ผื่นขึ้น",
+    "ตาอักเสบ",
+    "แสบร้อน",
+    "เข็มทิ่ม",
+    "ปวด",
+    "จุดแดง"
+  ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -186,7 +223,7 @@ class _searchPageState extends State<searchPage> {
                                             data['therapy'],
                                             data['medical'],
                                             data['refskin'],
-                                            data['timeStamp'],
+                                            data['timeStamp'].toDate(),
                                             )));
                               },
                               child: Container(
@@ -239,6 +276,86 @@ class _searchPageState extends State<searchPage> {
                               ),
                             );
                           }
+                          if (Bullous.any(
+                              (element) => name.contains(element))) {
+                            var searchBullous = Bullous.where(
+                                (element) => name.contains(element));
+                            if (searchBullous.any((element) =>
+                                data['symptom'].toString().contains(element))) {
+                              return GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => DetailScreen(
+                                            data['img'],
+                                            data['nameThai'],
+                                            data['nameEng'],
+                                            data['detail'],
+                                            data['cause'],
+                                            data['protect'],
+                                            data['symptom'],
+                                            data['therapy'],
+                                            data['medical'],
+                                            data['refskin'],
+                                            data['timeStamp'].toDate(),)));
+                                },
+                                child: Container(
+                                margin: EdgeInsets.only(bottom: 20),
+                                decoration: BoxDecoration(
+                                    // color: Colors.indigo[500],
+                                    // borderRadius: BorderRadius.circular(20)
+                                    borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(10),
+                                        bottomLeft: Radius.circular(10))),
+                                child: ListTile(
+                                  title: Text(
+                                    data['nameThai'],
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    // ignore: prefer_const_constructors
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  subtitle: Text(
+                                    data['nameEng'],
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  trailing: Icon(
+                                    Icons.arrow_forward_ios,
+                                    color: Colors.white,
+                                  ),
+                                  leading: ConstrainedBox(
+                                    constraints: BoxConstraints(
+                                      minWidth: 44,
+                                      minHeight: 44,
+                                      maxWidth: 100,
+                                      maxHeight: 100,
+                                    ),
+                                    child: Image.network(data['img'],
+                                        fit: BoxFit.cover),
+                                  ),
+
+                                  
+                                  textColor: Colors.white,
+                                  tileColor: Color.fromARGB(255, 90, 202, 189),
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20)),
+                                ),
+                              ),
+                            );
+                            }
+                          }
+
+
+
+
+
                           return Container();
                         }),
                   );
@@ -262,3 +379,17 @@ Widget buildResultCard(data) {
         ),
       ))));
 }
+// ignore_for_file: prefer_const_constructors
+
+
+
+
+
+
+
+
+
+
+
+
+
